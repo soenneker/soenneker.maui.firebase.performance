@@ -23,4 +23,18 @@ public static class FirebasePerformanceServiceRegistrar
 #endif
         return services;
     }
+
+    public static FirebaseMauiBuilder EnableFirebasePerformance(this FirebaseMauiBuilder builder)
+    {
+        return builder.AddService((firebaseInstance, config) =>
+        {
+#if ANDROID
+            FirebasePerformance.Instance.PerformanceCollectionEnabled = true;
+#endif
+
+#if IOS
+            global::Firebase.PerformanceMonitoring.Performance.SharedInstance.DataCollectionEnabled = true;
+#endif
+        });
+    }
 }
