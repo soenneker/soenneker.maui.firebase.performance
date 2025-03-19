@@ -3,6 +3,7 @@ using Soenneker.Maui.Firebase.Performance.Abstract;
 
 #if ANDROID
 using Soenneker.Maui.Firebase.Performance.Platforms.Android;
+using Firebase.Perf;
 #endif
 
 #if IOS
