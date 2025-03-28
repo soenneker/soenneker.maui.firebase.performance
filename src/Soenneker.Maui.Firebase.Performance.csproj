@@ -2,7 +2,6 @@
 
     <PropertyGroup>
         <TargetFrameworks>net9.0;net9.0-android;net9.0-ios</TargetFrameworks>
-        <UseMaui Condition="'$(TargetFramework)' != 'net9.0'">true</UseMaui>
         <SingleProject>true</SingleProject>
         <Nullable>enable</Nullable>
         <Platforms>AnyCPU</Platforms>
@@ -38,14 +37,6 @@
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageIcon>icon.png</PackageIcon>
     </PropertyGroup>
-
-    <ItemGroup>
-      <Compile Remove="NewFolder\**" />
-      <EmbeddedResource Remove="NewFolder\**" />
-      <MauiCss Remove="NewFolder\**" />
-      <MauiXaml Remove="NewFolder\**" />
-      <None Remove="NewFolder\**" />
-    </ItemGroup>
 
     <ItemGroup>
         <None Include="..\CONTRIBUTING.md" Link="CONTRIBUTING.md" />
