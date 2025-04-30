@@ -52,7 +52,7 @@
 
     <ItemGroup Condition="'$(TargetFramework)' == 'net9.0-android'">
       <PackageReference Include="Xamarin.Firebase.Perf">
-        <Version>121.0.5</Version>
+        <Version>121.0.5.1</Version>
       </PackageReference>
     </ItemGroup>
 
