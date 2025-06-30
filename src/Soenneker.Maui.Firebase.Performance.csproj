@@ -46,7 +46,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Soenneker.Maui.Firebase" Version="3.0.80" />
+        <PackageReference Include="Soenneker.Maui.Firebase" Version="3.0.81" />
         <PackageReference Include="Microsoft.Maui.Controls" Version="9.0.81" />
     </ItemGroup>
 
