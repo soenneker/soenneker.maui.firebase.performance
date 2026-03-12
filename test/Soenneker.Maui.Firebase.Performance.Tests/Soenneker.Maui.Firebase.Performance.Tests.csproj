@@ -27,7 +27,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\src\Soenneker.Maui.Firebase.Performance.csproj" />
+        <ProjectReference Include="..\..\src\Soenneker.Maui.Firebase.Performance\Soenneker.Maui.Firebase.Performance.csproj" />
     </ItemGroup>
 
     <ItemGroup>
