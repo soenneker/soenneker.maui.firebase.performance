@@ -1,19 +1,18 @@
-﻿using Soenneker.Tests.FixturedUnit;
-using Xunit;
+using Soenneker.Tests.HostedUnit;
 
 namespace Soenneker.Maui.Firebase.Performance.Tests;
 
-[Collection("Collection")]
-public class FirebasePerformanceServiceTests : FixturedUnitTest
+[ClassDataSource<Host>(Shared = SharedType.PerTestSession)]
+public class FirebasePerformanceServiceTests : HostedUnitTest
 {
 
 
-    public FirebasePerformanceServiceTests(Fixture fixture, ITestOutputHelper output) : base(fixture, output)
+    public FirebasePerformanceServiceTests(Host host) : base(host)
     {
 
     }
 
-    [Fact]
+    [Test]
     public void Default()
     {
 
