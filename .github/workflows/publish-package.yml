@@ -59,7 +59,7 @@ jobs:
         run: dotnet build test/Soenneker.Maui.Firebase.Performance.Tests/Soenneker.Maui.Firebase.Performance.Tests.csproj --configuration Release --no-restore --verbosity minimal
 
       - name: Test
-        run: dotnet test test/Soenneker.Maui.Firebase.Performance.Tests/Soenneker.Maui.Firebase.Performance.Tests.csproj --configuration Release --no-build --no-restore --verbosity normal
+        run: dotnet test --project test/Soenneker.Maui.Firebase.Performance.Tests/Soenneker.Maui.Firebase.Performance.Tests.csproj --configuration Release --no-build --no-restore --verbosity normal
 
       - name: Restore library
         run: dotnet restore src/Soenneker.Maui.Firebase.Performance/Soenneker.Maui.Firebase.Performance.csproj --verbosity minimal
