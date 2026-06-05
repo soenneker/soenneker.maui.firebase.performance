@@ -5,11 +5,9 @@ using System.Threading.Tasks;
 
 namespace Soenneker.Maui.Firebase.Performance.Platforms.iOS;
 
+/// <inheritdoc cref="IFirebasePerformanceService"/>
 public class FirebasePerformanceService : IFirebasePerformanceService
 {
-    /// <summary>
-    /// Starts a performance trace using Firebase's shared instance.
-    /// </summary>
     public IFirebasePerformanceTrace StartTrace(string traceName)
     {
         Trace? trace = global::Firebase.PerformanceMonitoring.Performance.StartTrace(traceName);
@@ -17,17 +15,11 @@ public class FirebasePerformanceService : IFirebasePerformanceService
         return new FirebasePerformanceTrace(trace!);
     }
 
-    /// <summary>
-    /// Stops a running trace.
-    /// </summary>
     public void StopTrace(IFirebasePerformanceTrace trace)
     {
         trace.Stop();
     }
 
-    /// <summary>
-    /// Logs a standalone metric by creating and stopping a trace immediately.
-    /// </summary>
     public void LogMetric(string metricName, long value)
     {
         Trace? trace = global::Firebase.PerformanceMonitoring.Performance.StartTrace(metricName);
@@ -35,9 +27,6 @@ public class FirebasePerformanceService : IFirebasePerformanceService
         trace.Stop();
     }
 
-    /// <summary>
-    /// Adds a custom attribute to an existing trace.
-    /// </summary>
     public void SetAttribute(IFirebasePerformanceTrace trace, string attributeName, string value)
     {
         if (trace is FirebasePerformanceTrace firebaseTrace)
@@ -46,9 +35,6 @@ public class FirebasePerformanceService : IFirebasePerformanceService
         }
     }
 
-    /// <summary>
-    /// Measures execution time of an async operation and logs it to Firebase Performance.
-    /// </summary>
     public async Task Measure(string traceName, Func<Task> operation)
     {
         IFirebasePerformanceTrace trace = StartTrace(traceName);

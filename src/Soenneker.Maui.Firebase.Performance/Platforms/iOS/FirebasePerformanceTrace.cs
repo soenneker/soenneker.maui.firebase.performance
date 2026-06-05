@@ -19,5 +19,10 @@ public class FirebasePerformanceTrace : IFirebasePerformanceTrace
 
     public void LogMetric(string metricName, long value) => _trace.SetIntValue(value, metricName);
 
+    /// <summary>
+    /// Sets attribute.
+    /// </summary>
+    /// <param name="attributeName">The attribute name.</param>
+    /// <param name="value">The value.</param>
     public void SetAttribute(string attributeName, string value) => _trace.SetValue(value, attributeName);
 }

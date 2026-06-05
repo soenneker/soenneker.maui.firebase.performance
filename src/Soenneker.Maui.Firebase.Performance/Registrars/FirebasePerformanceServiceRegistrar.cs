@@ -12,8 +12,16 @@ using Soenneker.Maui.Firebase.Performance.Platforms.iOS;
 
 namespace Soenneker.Maui.Firebase.Performance.Registrars;
 
+/// <summary>
+/// Represents the firebase performance service registrar.
+/// </summary>
 public static class FirebasePerformanceServiceRegistrar
 {
+    /// <summary>
+    /// Adds firebase performance service as singleton.
+    /// </summary>
+    /// <param name="services">The service collection.</param>
+    /// <returns>The result of the operation.</returns>
     public static IServiceCollection AddFirebasePerformanceServiceAsSingleton(this IServiceCollection services)
     {
 #if ANDROID
@@ -25,6 +33,11 @@ public static class FirebasePerformanceServiceRegistrar
         return services;
     }
 
+    /// <summary>
+    /// Executes the enable firebase performance operation.
+    /// </summary>
+    /// <param name="builder">The builder.</param>
+    /// <returns>The result of the operation.</returns>
     public static FirebaseMauiBuilder EnableFirebasePerformance(this FirebaseMauiBuilder builder)
     {
         return builder.AddService((firebaseInstance, config) =>
