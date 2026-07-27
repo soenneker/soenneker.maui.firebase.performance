@@ -40,7 +40,9 @@ public static class FirebasePerformanceServiceRegistrar
     /// <returns>The result of the operation.</returns>
     public static FirebaseMauiBuilder EnableFirebasePerformance(this FirebaseMauiBuilder builder)
     {
+#pragma warning disable CA1416 // The referenced Firebase package has malformed platform metadata; this project is platform-targeted.
         return builder.AddService((firebaseInstance, config) =>
+#pragma warning restore CA1416
         {
 #if ANDROID
             FirebasePerformance.Instance.PerformanceCollectionEnabled = true;
