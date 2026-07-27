@@ -60,7 +60,7 @@
         <PackageReference Include="Xamarin.AndroidX.Lifecycle.ViewModel.Ktx" Version="2.11.0.1" />
         <PackageReference Include="Xamarin.AndroidX.SavedState.SavedState.Ktx" Version="1.5.0.1" />
         <PackageReference Include="Xamarin.Firebase.Perf">
-            <Version>122.0.5</Version>
+            <Version>122.0.6</Version>
         </PackageReference>
     </ItemGroup>
 
