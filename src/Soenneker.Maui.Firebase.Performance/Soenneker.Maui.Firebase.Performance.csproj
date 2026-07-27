@@ -47,8 +47,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Soenneker.Maui.Firebase" Version="4.0.179" />
-        <PackageReference Include="Microsoft.Maui.Controls" Version="10.0.80" />
+        <PackageReference Include="Soenneker.Maui.Firebase" Version="4.0.182" />
+        <PackageReference Include="Microsoft.Maui.Controls" Version="10.0.90" />
         <PackageReference Include="Xamarin.Build.Download" Version="0.11.4" PrivateAssets="all" />
     </ItemGroup>
 
@@ -60,7 +60,7 @@
         <PackageReference Include="Xamarin.AndroidX.Lifecycle.ViewModel.Ktx" Version="2.11.0.1" />
         <PackageReference Include="Xamarin.AndroidX.SavedState.SavedState.Ktx" Version="1.5.0.1" />
         <PackageReference Include="Xamarin.Firebase.Perf">
-            <Version>122.0.5</Version>
+            <Version>122.0.6</Version>
         </PackageReference>
     </ItemGroup>
 
