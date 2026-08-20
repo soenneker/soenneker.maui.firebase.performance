@@ -48,7 +48,7 @@
 
     <ItemGroup>
         <PackageReference Include="Soenneker.Maui.Firebase" Version="4.0.186" />
-        <PackageReference Include="Microsoft.Maui.Controls" Version="10.0.90" />
+        <PackageReference Include="Microsoft.Maui.Controls" Version="10.0.100" />
         <PackageReference Include="Xamarin.Build.Download" Version="0.11.5" PrivateAssets="all" />
     </ItemGroup>
 
