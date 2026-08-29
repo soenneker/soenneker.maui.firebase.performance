@@ -3,9 +3,7 @@ using Soenneker.Maui.Firebase.Performance.Abstract;
 
 namespace Soenneker.Maui.Firebase.Performance.Platforms.iOS;
 
-/// <summary>
-/// Private class that wraps Firebase's Trace implementation.
-/// </summary>
+/// <inheritdoc cref="IFirebasePerformanceTrace"/>
 public class FirebasePerformanceTrace : IFirebasePerformanceTrace
 {
     private readonly Trace _trace;
