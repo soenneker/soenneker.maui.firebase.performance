@@ -18,10 +18,10 @@ namespace Soenneker.Maui.Firebase.Performance.Registrars;
 public static class FirebasePerformanceServiceRegistrar
 {
     /// <summary>
-    /// Adds firebase performance service as singleton.
+    /// Registers Firebase Performance Service with a singleton lifetime.
     /// </summary>
-    /// <param name="services">The service collection.</param>
-    /// <returns>The result of the operation.</returns>
+    /// <param name="services">Service collection that receives the registration.</param>
+    /// <returns>The same service collection, so additional registrations can be chained.</returns>
     public static IServiceCollection AddFirebasePerformanceServiceAsSingleton(this IServiceCollection services)
     {
 #if ANDROID
@@ -34,10 +34,10 @@ public static class FirebasePerformanceServiceRegistrar
     }
 
     /// <summary>
-    /// Executes the enable firebase performance operation.
+    /// Adds the enable firebase performance firebase performance service utility to the class list.
     /// </summary>
-    /// <param name="builder">The builder.</param>
-    /// <returns>The result of the operation.</returns>
+    /// <param name="builder">Builder to configure.</param>
+    /// <returns>The same builder instance, so additional classes or variants can be chained.</returns>
     public static FirebaseMauiBuilder EnableFirebasePerformance(this FirebaseMauiBuilder builder)
     {
 #pragma warning disable CA1416 // The referenced Firebase package has malformed platform metadata; this project is platform-targeted.

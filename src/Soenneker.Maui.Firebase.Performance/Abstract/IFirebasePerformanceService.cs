@@ -4,12 +4,6 @@ using System.Threading.Tasks;
 namespace Soenneker.Maui.Firebase.Performance.Abstract;
 
 /// <summary>
-/// A cross-platform library for adding Firebase Performance to MAUI applications
-/// </summary>
-/// <summary>
-/// Provides an interface for Firebase Performance Monitoring.
-/// </summary>
-/// <summary>
 /// Provides an interface for Firebase Performance Monitoring.
 /// </summary>
 public interface IFirebasePerformanceService
@@ -47,6 +41,7 @@ public interface IFirebasePerformanceService
     /// </summary>
     /// <param name="traceName">Name of the trace</param>
     /// <param name="operation">Async operation</param>
+    /// <returns>A task that completes when the measure operation is complete.</returns>
     Task Measure(string traceName, Func<Task> operation);
 
     /// <summary>

@@ -22,7 +22,7 @@ public class FirebasePerformanceTrace : IFirebasePerformanceTrace
     /// <summary>
     /// Sets attribute.
     /// </summary>
-    /// <param name="attributeName">The attribute name.</param>
-    /// <param name="value">The value.</param>
+    /// <param name="attributeName">Name of the attribute to target.</param>
+    /// <param name="value">Attribute value to record on the performance trace.</param>
     public void SetAttribute(string attributeName, string value) => _trace.SetValue(value, attributeName);
 }
