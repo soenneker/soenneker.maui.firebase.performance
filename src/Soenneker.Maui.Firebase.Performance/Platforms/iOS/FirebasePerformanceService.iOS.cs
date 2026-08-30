@@ -1,38 +1,43 @@
-﻿using Soenneker.Maui.Firebase.Performance.Abstract;
-using System;
 using Firebase.PerformanceMonitoring;
+using Soenneker.Maui.Firebase.Performance.Abstract;
+using System;
 using System.Threading.Tasks;
 
 namespace Soenneker.Maui.Firebase.Performance.Platforms.iOS;
 
-/// <inheritdoc cref="IFirebasePerformanceService"/>
-public class FirebasePerformanceService : IFirebasePerformanceService
+public sealed class FirebasePerformanceService : IFirebasePerformanceService
 {
     public IFirebasePerformanceTrace StartTrace(string traceName)
     {
-        Trace? trace = global::Firebase.PerformanceMonitoring.Performance.StartTrace(traceName);
-        
-        return new FirebasePerformanceTrace(trace!);
+        Trace trace = global::Firebase.PerformanceMonitoring.Performance.StartTrace(traceName)
+                      ?? throw new InvalidOperationException($"Firebase could not start the performance trace '{traceName}'.");
+
+        return new FirebasePerformanceTrace(trace);
     }
 
     public void StopTrace(IFirebasePerformanceTrace trace)
     {
-        trace.Stop();
+        trace.Dispose();
     }
 
     public void LogMetric(string metricName, long value)
     {
-        Trace? trace = global::Firebase.PerformanceMonitoring.Performance.StartTrace(metricName);
-        trace!.SetIntValue(value, metricName);
-        trace.Stop();
+        using Trace trace = global::Firebase.PerformanceMonitoring.Performance.StartTrace(metricName)
+                            ?? throw new InvalidOperationException($"Firebase could not start the performance trace '{metricName}'.");
+
+        try
+        {
+            trace.SetIntValue(value, metricName);
+        }
+        finally
+        {
+            trace.Stop();
+        }
     }
 
     public void SetAttribute(IFirebasePerformanceTrace trace, string attributeName, string value)
     {
-        if (trace is FirebasePerformanceTrace firebaseTrace)
-        {
-            firebaseTrace.SetAttribute(attributeName, value);
-        }
+        trace.SetAttribute(attributeName, value);
     }
 
     public async Task Measure(string traceName, Func<Task> operation)
@@ -45,7 +50,7 @@ public class FirebasePerformanceService : IFirebasePerformanceService
         }
         finally
         {
-            trace.Stop();
+            trace.Dispose();
         }
     }
 
@@ -58,5 +63,4 @@ public class FirebasePerformanceService : IFirebasePerformanceService
     {
         global::Firebase.PerformanceMonitoring.Performance.SharedInstance.DataCollectionEnabled = enabled;
     }
-
 }

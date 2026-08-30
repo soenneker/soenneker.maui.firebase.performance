@@ -1,19 +1,28 @@
-﻿namespace Soenneker.Maui.Firebase.Performance.Abstract;
+using System;
+
+namespace Soenneker.Maui.Firebase.Performance.Abstract;
 
 /// <summary>
-/// Represents a performance trace that can be used to measure app performance.
+/// Represents a running Firebase Performance Monitoring trace.
 /// </summary>
-public interface IFirebasePerformanceTrace
+public interface IFirebasePerformanceTrace : IDisposable
 {
     /// <summary>
-    /// Stops the trace.
+    /// Stops the trace. Calling this more than once has no effect.
     /// </summary>
     void Stop();
 
     /// <summary>
-    /// Logs a custom metric to an existing trace.
+    /// Records a custom metric on the trace.
     /// </summary>
-    /// <param name="metricName">Name of the metric</param>
-    /// <param name="value">Metric value</param>
+    /// <param name="metricName">Name of the metric.</param>
+    /// <param name="value">Metric value.</param>
     void LogMetric(string metricName, long value);
+
+    /// <summary>
+    /// Sets an attribute on the trace.
+    /// </summary>
+    /// <param name="attributeName">Name of the attribute.</param>
+    /// <param name="value">Attribute value.</param>
+    void SetAttribute(string attributeName, string value);
 }

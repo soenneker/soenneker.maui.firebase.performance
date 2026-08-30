@@ -1,13 +1,12 @@
-﻿using System;
-using System.Threading.Tasks;
 using Firebase.Perf;
 using Firebase.Perf.Metrics;
 using Soenneker.Maui.Firebase.Performance.Abstract;
+using System;
+using System.Threading.Tasks;
 
 namespace Soenneker.Maui.Firebase.Performance.Platforms.Android;
 
-/// <inheritdoc cref="IFirebasePerformanceService"/>
-public class FirebasePerformanceService : IFirebasePerformanceService
+public sealed class FirebasePerformanceService : IFirebasePerformanceService
 {
     public IFirebasePerformanceTrace StartTrace(string traceName)
     {
@@ -18,23 +17,27 @@ public class FirebasePerformanceService : IFirebasePerformanceService
 
     public void StopTrace(IFirebasePerformanceTrace trace)
     {
-        trace.Stop();
+        trace.Dispose();
     }
 
     public void LogMetric(string metricName, long value)
     {
-        Trace trace = FirebasePerformance.Instance.NewTrace(metricName);
+        using Trace trace = FirebasePerformance.Instance.NewTrace(metricName);
         trace.Start();
-        trace.PutMetric(metricName, value);
-        trace.Stop();
+
+        try
+        {
+            trace.PutMetric(metricName, value);
+        }
+        finally
+        {
+            trace.Stop();
+        }
     }
 
     public void SetAttribute(IFirebasePerformanceTrace trace, string attributeName, string value)
     {
-        if (trace is FirebasePerformanceTrace firebaseTrace)
-        {
-            firebaseTrace.SetAttribute(attributeName, value);
-        }
+        trace.SetAttribute(attributeName, value);
     }
 
     public async Task Measure(string traceName, Func<Task> operation)
@@ -47,7 +50,7 @@ public class FirebasePerformanceService : IFirebasePerformanceService
         }
         finally
         {
-            trace.Stop();
+            trace.Dispose();
         }
     }
 

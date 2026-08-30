@@ -22,7 +22,7 @@ public interface IFirebasePerformanceService
     void StopTrace(IFirebasePerformanceTrace trace);
 
     /// <summary>
-    /// Logs a custom metric globally without an explicit trace.
+    /// Records a custom metric on a short-lived trace.
     /// </summary>
     /// <param name="metricName">The name of the metric.</param>
     /// <param name="value">The value of the metric.</param>
