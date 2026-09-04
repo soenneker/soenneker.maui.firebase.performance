@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Soenneker.Maui.Firebase.Performance.Platforms.Android;
 
+/// <inheritdoc cref="IFirebasePerformanceService" />
 public sealed class FirebasePerformanceService : IFirebasePerformanceService
 {
     public IFirebasePerformanceTrace StartTrace(string traceName)
