@@ -29,6 +29,6 @@
         <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="10.0.13" />
         <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.13" />
         <PackageReference Include="Microsoft.Extensions.Logging" Version="10.0.13" />
-        <PackageReference Include="Microsoft.Maui.Controls.Core" Version="10.0.110" />
+        <PackageReference Include="Microsoft.Maui.Controls.Core" Version="10.0.120" />
     </ItemGroup>
 </Project>
